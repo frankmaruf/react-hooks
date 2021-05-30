@@ -1,25 +1,20 @@
 import React, { useState } from 'react'
+import useForm from './forState/useForm';
 
 const UseState = () => {
-    {/* Complex one
-    const [{count,count2}, setCount] = useState({count:10,count2:20});
-    */}
-    
-    //Simple
-    const [count,setCount] = useState(10);
-    const [count2,setCount2] = useState(20);
+    const [values, handleChange] = useForm({email:"",password:""});
   return (
     <>
-      {/* <button onClick={()=>setCount(currentState => ({
-        count: currentState.count + 1,
-        count2: currentState.count2 +2
-        }))}>+</button> */}
-        <button onClick={()=>{
-            setCount(c => (c+1))
-            setCount2(c => (c+2))
-            }}>+</button>
-      <div>count 1:{count}</div>
-      <div>count 2:{count2}</div>
+    <form onSubmit={(e)=>e.preventDefault()}>
+        <input 
+        name = "email"
+         value={values.email}
+          onChange={handleChange}/>
+        <input type="password" 
+        name="password" 
+        value={values.password} 
+        onChange={handleChange}/>
+    </form>
     </>
   );
 }
