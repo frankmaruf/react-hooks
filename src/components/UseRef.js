@@ -1,9 +1,12 @@
-import React, { useRef, useState } from 'react'
+import React, { useLayoutEffect, useRef, useState } from 'react'
 
 const UseRef = () => {
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
-    const inputRef = useRef();
+    const inputRef = useRef(()=> console.log("hello"));
+    useLayoutEffect(()=>{
+        console.log(inputRef.current.getBoundingClientRect())
+    },[])
     return (
         <div>
             <input
@@ -24,7 +27,7 @@ const UseRef = () => {
             onClick={
                 () => {
                     console.log(inputRef.current)
-                    inputRef.current.focus()
+                    inputRef.current.focus();
                 }
             }
             ></button>
