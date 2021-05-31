@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import useForm from './forState/useForm';
 
 const UseState = () => {
-    const [values, handleChange] = useForm({email:"",password:""});
+  const [values, handleChange] = useForm({email:"",password:""});
   return (
     <>
     <form onSubmit={(e)=>e.preventDefault()}>
